@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:wght@200&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+picture,
+img,
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+a,
+span,
+button,
+label,
+input,
+textarea {
+  display: inline-block;
+  font-family: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+a,
+button,
+label,
+textarea{
+  cursor: pointer;
+}
+q::after , 
+q::before{
+  content: '';
+}
+.container{
+  max-width: calc(1700px + 32px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#root>*{
+  flex-shrink: 0;
+}
+#root>main{
+flex-grow: 1;
+}

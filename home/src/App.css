@@ -1,0 +1,47 @@
+.Header {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .Logo {
+    font-size: 30px;
+    font-weight: 400;
+    color: #000;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  .Header__menu>*+*{
+margin-left: 32px;
+}
+.Header__menu-link{
+  font-weight: 500;
+  font-size: 20px;
+  color: #000;
+}
+.Header__form-input{
+  border: 1px solid #51abff;
+  border-radius: 10px;
+  width: 650px;
+  background: transparent;
+  padding: 5px 35px 5px 10px;
+}
+.Header__form-btn{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #51abff;
+  background: transparent;
+  border: none;
+  outline: none;
+
+}
+
+
+}
+.Header>* {
+  flex-shrink: 0;
+}

@@ -1,0 +1,164 @@
+.Header {
+  padding:40px 20px 60px 20px !important;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  .Logo {
+    font-size: 30px;
+    font-weight: 400;
+    color: #000;
+
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .Header__menu>*+* {
+    margin-left: 25px;
+  }
+
+  .Header__form {
+    position: relative;
+  }
+
+  .Header__menu-link {
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+  }
+
+  .Header__form-input {
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #51abff;
+    border-radius: 10px;
+    width: 650px;
+    background: transparent;
+    padding: 5px 35px 5px 10px;
+  }
+
+  .Header__form-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #51abff;
+    background: transparent;
+    border: none;
+    outline: none;
+
+  }
+
+  .Header__link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #51abff;
+  }
+
+  .Header__lang {
+    background: #fff;
+    color: #51abff;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px 8px;
+    border: 1px solid #51abff;
+  }
+
+}
+
+.Header>* {
+
+  flex-shrink: 0;
+}
+
+.Home__header{
+  .Home__header-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .Home__header-content{
+    flex-grow: 1;
+    padding-bottom: 30px;
+    padding-top: 35px;
+  }
+  .Home__header-img{
+    width: 407px;
+    flex-shrink: 0;
+  }
+  .title-1{
+font-size: 80px;
+font-weight: 500;
+line-height: 97.52px;
+text-align: left;
+
+  }
+  .title-4{
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48.76px;
+    text-align: left;
+    
+    color:  #51ABFF;
+
+  }
+  .Home__header-content__item{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 0px 80px;
+    border-bottom: 1px solid #9D9090 ;
+    div{
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    p{
+font-size: 20px;
+font-weight: 500;
+line-height: 24.38px;
+text-align: left;
+
+
+    }
+  }
+  .Home__header-content__footer-items{
+    display: flex;
+    gap: 15px;
+}
+}
+.Products{
+  .title-1{
+    padding: 90px 0 60px 0 !important;
+    max-width: 200px;
+    color: #000;
+font-size: 80px;
+font-weight: 500;
+line-height: 97.52px;
+text-align: left;
+
+  }
+  .Products__wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+  img{
+    width: 100%;
+    border-radius:10`px ;
+  }
+  h3{
+color: #000;
+      font-size: 50px;
+font-weight: 500;
+line-height: 60.95px;
+text-align: center;
+padding: 60px 0;
+    }
+}

@@ -10,7 +10,7 @@ width: 100%;
 const ImageContent = styled.img`
 width: 100%;
 height: auto;
-odject-fit:cover;
+object-fit:cover;
 object-position:center;
 `
 

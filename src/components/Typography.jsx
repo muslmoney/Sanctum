@@ -20,8 +20,3 @@ const Typography = (lvl, className,  children, ...props ) => {
 export default Typography
 
 
-export const Paragraph = () => {
-  return (
-    <div>Paragraph</div>
-  )
-}

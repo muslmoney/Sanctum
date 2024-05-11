@@ -59,3 +59,12 @@ q::before{
 #root>main{
 flex-grow: 1;
 }
+.card-text-opacity{
+  color: #000;
+  opacity: 50%;
+font-size: 20px;
+font-weight: 500;
+line-height: 30px;
+text-align: left;
+
+}

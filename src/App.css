@@ -151,7 +151,7 @@ text-align: left;
   }
   img{
     width: 100%;
-    border-radius:10`px ;
+    border-radius:10px ;
   }
   h3{
 color: #000;
@@ -161,4 +161,78 @@ line-height: 60.95px;
 text-align: center;
 padding: 60px 0;
     }
+}
+.about{
+  padding-top: 90px;
+ .about-text{
+  padding-top: 45px;
+
+ }
+  .about__wrap{
+display: flex;
+justify-content: space-between;
+  }
+   /* p:first-child{
+    max-width: 645px;
+  } */
+  .about__images{
+    max-width: 890px;
+    display: flex;
+    gap: 27px;
+   
+    img:first-child{
+      border-top: 1px solid #9D9090;
+padding-top: 175px;
+    }
+    img:last-child{
+      padding-bottom: 175px;
+          }
+  }
+  /* .about__images:first-child{
+    padding-top: 175px;
+  } 
+  .about__images:last-child{
+    padding-bottom: 175px;
+  } */
+  .about__card{
+    max-width: 760px;
+    .title-1{
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 97.52px;
+    text-align: left;
+    
+  }
+  }
+  
+  h4{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    
+  }
+  .about__card__inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .about__card__inner-item{
+      padding: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pon{
+      max-width: 612px;
+    }
+    h1{
+      color:  #51ABFF;
+
+font-size: 80px;
+font-weight: 400;
+line-height: 120px;
+text-align: left;
+
+    }
+  }
 }

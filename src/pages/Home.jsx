@@ -8,6 +8,7 @@ import ProductsImage2 from '../assets/productsImg2.jpg'
 import Typography from '../components/Typography'
 import AboutImg1 from '../assets/about-img1.jpg'
 import AboutImg2 from '../assets/about-img2.jpg'
+import ProjectImg from '../assets/project-img.jpg'
 
 
 
@@ -136,7 +137,24 @@ const Home = () => {
 
 
 
-
+<section className="project">
+    <div className="container">
+        <h1>
+            Проект месяца 
+        </h1>
+        <div className="project__wrap">
+<div className='project__card'>
+<h3>Мраморная ванна Ultra</h3>
+<div className='project__card-item'>
+    <p>Стиль: Лофт</p>
+    <p>Размер 1800 x 1200 x 500мм</p>
+    <button >Подробнее</button>
+</div>
+</div>
+            <div className='project__img'><img src={ProjectImg} alt="project-img" /></div>
+        </div>
+    </div>
+</section>
 
 
 

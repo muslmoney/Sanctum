@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-  body{
-    font-family: 'Montserrat';
+body {
+  font-family: 'Montserrat';
 }
 
 * {
@@ -9,6 +9,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 picture,
 img,
 svg {
@@ -34,37 +35,53 @@ textarea {
 a,
 button,
 label,
-textarea{
+textarea {
   cursor: pointer;
 }
-q::after , 
-q::before{
+
+q::after,
+q::before {
   content: '';
 }
-.container{
+
+.container {
   max-width: calc(1700px + 32px);
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
 
 }
-#root{
+
+#root {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#root>*{
+
+#root>* {
   flex-shrink: 0;
 }
-#root>main{
-flex-grow: 1;
+
+#root>main {
+  flex-grow: 1;
 }
-.card-text-opacity{
+
+.card-text-opacity {
   color: #000;
   opacity: 50%;
-font-size: 20px;
-font-weight: 500;
-line-height: 30px;
-text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: inherit;
 }

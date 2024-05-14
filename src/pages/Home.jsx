@@ -9,7 +9,7 @@ import Typography from '../components/Typography'
 import AboutImg1 from '../assets/about-img1.jpg'
 import AboutImg2 from '../assets/about-img2.jpg'
 import ProjectImg from '../assets/project-img.jpg'
-
+import Title from '../components/Typography'
 
 
 
@@ -21,7 +21,10 @@ const Home = () => {
                     <div className="Home__header-row">
                         <div className="Home__header-wrap">
                             <div className="Home__header-content ">
-                                <h1 className='title-1'>Sanctum <br /> Ecsclusive santexnika </h1>
+                                {/* <h1 className='title-1'>Sanctum <br /> Ecsclusive santexnika </h1> */}
+                                <Title lvl={1} weight={500} >
+                                Sanctum <br /> Ecsclusive santexnika
+                                </Title>
                             </div>
                             <div className="Home__header-content__footer">
                                 <div className="Home__header-content__footer-items">

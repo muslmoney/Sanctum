@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Typography = (lvl, className,  children, ...props ) => {
- className = `${className} Typography Typography__${level ?? 'default'}`
+ className = `${className} Typography Typography__${lvl ?? 'default'}`
     switch(lvl){
     case 1:
     return <h1 className= {className}{...props}>{children}</h1>

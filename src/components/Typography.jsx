@@ -29,25 +29,25 @@ const Typography = ({lvl = 1, weight, className, children, ...props}) => {
     case 2:
       return (
         <TitleDefault>
-          <h1 className={className} {...props}>
+          <h2 className={className} {...props}>
             {children}
-          </h1>
+          </h2>
         </TitleDefault>
       );
     case 3:
       return (
         <TitleDefault>
-          <h1 className={className} {...props}>
+          <h3 className={className} {...props}>
             {children}
-          </h1>
+          </h3>
         </TitleDefault>
       );
     case 4:
       return (
         <TitleDefault>
-          <h1 className={className} {...props}>
+          <h4 className={className} {...props}>
             {children}
-          </h1>
+          </h4>
         </TitleDefault>
       );
 

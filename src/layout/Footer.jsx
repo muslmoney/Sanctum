@@ -6,8 +6,8 @@ const Footer = () => {
     <div>
 <footer className="Footer">
     <div className="container">
-    <Copyright />
     <Question />
+    <Copyright />
     </div>
 </footer>        
 </div>

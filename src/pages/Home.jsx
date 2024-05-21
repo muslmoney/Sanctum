@@ -89,7 +89,7 @@ const Home = () => {
 
             </section>
             <section className='container Products'>
-                <h1 className='title-1'>Продукция Sanctum</h1>
+                {/* <h1 className='title-1'>Продукция Sanctum</h1> */}
                 <Typography className={'title-1'}>Продукция Sanctum</Typography>
 
                 <div className="Products__wrap">

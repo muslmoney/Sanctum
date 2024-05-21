@@ -2,9 +2,12 @@ import React from 'react'
 import Typography, { Paragraph } from '../components/Typography'
 import QuestionStyle from './layout.module.css'
 import { Formik } from 'formik'
+import Image from '../components/Image'
+import questionImg1 from '../assets/question-img-1.jpg'
+import questionImg2 from '../assets/question-img-2.jpg'
 const Question = () => {
   return (
-    <section>
+    <section className='Question'>
       <Typography lvl={1} weight={500}>
         Есть вопросы? <br />
         Mы вам поможем
@@ -95,7 +98,8 @@ const Question = () => {
           </Formik>
         </div>
         <div className={QuestionStyle['Question__images']}>
-          Images
+        <Image src={questionImg2}  ></Image>
+        <Image src={questionImg1}  ></Image>
 
         </div>
       </div>

@@ -10,6 +10,7 @@ import AboutImg1 from '../assets/about-img1.jpg'
 import AboutImg2 from '../assets/about-img2.jpg'
 import ProjectImg from '../assets/project-img.jpg'
 import Title from '../components/Typography'
+import Products from '../pages/Products'
 
 
 

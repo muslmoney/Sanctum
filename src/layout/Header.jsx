@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoSearchOutline } from 'react-icons/io5'
+
 const Header = () => {
   return (
     <header className='Header container'>
       <Link to={'/'} className='Logo'>
         Sanctum</Link>
       <nav className='Header__menu'>
-        <Link to={'/product'} className='Header__menu-link'>Products</Link>
-        <Link to={'/product'} className='Header__menu-link'>Payment and delivery</Link>
-        <Link to={'/product'} className='Header__menu-link'>About us</Link>
-        <Link to={'/product'} className='Header__menu-link'>Contacts</Link>
+        <Link to={'/products'} className='Header__menu-link'>Products</Link>
+        <Link to={'/payment-and-delivery'} className='Header__menu-link'>Payment and delivery</Link>
+        <Link to={'/about-us'} className='Header__menu-link'>About us</Link>
+        <Link to={'/contacts'} className='Header__menu-link'>Contacts</Link>
       </nav>
 
       <form className='Header__form'>

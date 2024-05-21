@@ -13,7 +13,7 @@ const App = () => {
     if (pathname === '/') {
       navigate('/home')
     }
-  }, [])
+  }, [pathname])
 
 
 

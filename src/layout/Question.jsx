@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Typography, { Paragraph } from '../components/Typography'
 import QuestionStyle from './layout.module.css'
 import { Formik } from 'formik'
@@ -6,9 +6,11 @@ import Image from '../components/Image'
 import questionImg1 from '../assets/question-img-1.jpg'
 import questionImg2 from '../assets/question-img-2.jpg'
 const Question = () => {
+  const [Reset , setReset] = useState(false);
   return (
-    <section className='Question'>
-      <Typography lvl={1} weight={500}>
+    <section className={QuestionStyle['Question']}>
+     <div className={QuestionStyle["container"]}> 
+     <Typography lvl={1} weight={500}>
         Есть вопросы? <br />
         Mы вам поможем
       </Typography>
@@ -43,11 +45,17 @@ const Question = () => {
 
             onSubmit={values => {
               console.log(values);
+              const success = confirm(`СМС  было отправлено`);
+              if (success) {
+                setReset(true)
+              }else{
+                setReset(false)
+              }
             }}
 
           >
             {({ handleBlur, handleChange, handleSubmit, values, errors, touched, handleReset }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className={QuestionStyle['Question__form']}>
                 <label>
                   <input type="text"
                     placeholder='Контактное лицо'
@@ -87,10 +95,10 @@ const Question = () => {
 
 
                 <button type='submit' onClick={() => {
-                  setTimeout(() => {
-                    handleReset()
-                  }, 1500)
-                }}>Отправить</button>
+                Reset && handleReset()
+                setReset(false)}}
+                >{Reset ? "Сброс"  : "Отправить"}
+                </button>
 
               </form>
             )
@@ -103,7 +111,7 @@ const Question = () => {
 
         </div>
       </div>
-
+</div>
     </section>
   )
 }

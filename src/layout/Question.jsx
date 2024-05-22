@@ -93,6 +93,12 @@ const Question = () => {
                   )}
                 </label>
 
+                <button type='submit' onClick={() => {
+                  setTimeout(() => {
+                    handleReset()
+                  }, 1500)
+                }}>Отправить</button>
+
 
                 <button type='submit' onClick={() => {
                 Reset && handleReset()

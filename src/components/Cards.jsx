@@ -1,15 +1,33 @@
+import classNames from 'classnames'
 import React from 'react'
 
-const Cards = ({ className, title, ImgSrc, ImgTitle   }) => {
-  className = {className}
-    return (
+import ProductStyle from "./components.module.css";
 
-    <div className={className } >
+
+const Cards = ({ className, title, ImgSrc, ImgTitle }) => {
+  className = { className }
+  return (
+
+    <div className={className} >
       <img src={ImgSrc} alt={ImgTitle} />
-<h3>{title}</h3>
+      <h3>{title}</h3>
     </div>
   )
 }
 
+
+export const ProductCard = ({ className, title, ImgSrc, ImgTitle, Text }) =>{
+  className = classNames(ProductStyle[{className}])
+return (
+  <div>
+    <img src={ImgSrc} alt={ImgTitle} />
+    <h3>{title}</h3>
+    <p>{Text}</p>
+    <button>Посмотреть</button>
+  </div>
+)
+}
+
 export default Cards
+
 

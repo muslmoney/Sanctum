@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import Typography, { Paragraph } from './../components/Typography'
 import { FaFilter } from 'react-icons/fa6'
 import ProductStyles from './pages.module.scss'
@@ -7,9 +7,27 @@ import ProductCardImg1 from '../assets/product-card1.jpg'
 import ProductCardImg2 from '../assets/product-card2.png'
 import ProductCardImg3 from '../assets/product-card3.jpg'
 import ProductCardImg4 from '../assets/product-card4.jpg'
+import { ProductsData } from '../db/products'
+import { Range } from "react-range"
 
 
 const Products = () => {
+  const [RangeValues, setRangeValues] = useState([900])
+
+
+
+  const productItem = ProductsData.map(item => {
+    return <Fragment>
+      <ProductCard >
+        image={item.image}
+        price = {item.price}
+        title={item.title}
+      </ProductCard>
+    </Fragment>
+  })
+
+
+
   return (
     <div>
       <section className={ProductStyles['Products']}>
@@ -113,92 +131,56 @@ const Products = () => {
                   </label>
                 </div>
               </div>
-              <div>
-                <Typography lvl={4}>Размер</Typography>
-                <div className={ProductStyles['Product__filter-range']} >
-                  <Paragraph>Длина</Paragraph>
-                  <label >
-                    <input type="range" className={ProductStyles['input-range']} min={'0'} max={'100'}
-                    //   onClick={
-                    //     scale = (num ,in_min , in_max , out_min, out_max ) => {
-                    //     return ((num - in_max ) * (out_max - out_min)) / (in_max - in_min) + out_min 
-                    //   }
-                    // }               
+              <div style={{ width: 340 , flexShrink: 0 }}>
 
-                    />
-                    <span className={ProductStyles['range-content']}>150</span>
-                  </label>
-                  <Paragraph>Ширина</Paragraph>
-                  <label >
-                    <input type="range" className={ProductStyles['input-range']} min={'0'} max={'100'} />
-                    <span className={ProductStyles['range-content']}>150</span>
+                <Range step={1}
+                  min={50}
+                  max={1800}
+                  values={RangeValues}
+                  onChange={(values) => setRangeValues(values)}
+                  renderThumb={({ ...props }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '42px',
+                        width: '42px',
+                        backgroundColor: '#999'
+                      }} />
 
-                  </label>
-                </div>
+                  )}
+                  renderTrack={({ props, children }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '6px',
+                        width: '100%',
+                        backgroundColor: '#ccc'
+                      }}
+                    >
+                      {children}
+                    </div>
+                  )}
+                />
               </div>
             </div>
           </div>
+
         </div>
-
-
-
-
       </section>
+
+
+
+
 
       <section className={ProductStyles['Product-cards']}>
         <div className="container">
-        <Typography lvl={1}>Ванны</Typography>
+          <Typography lvl={1}>Ванны</Typography>
           <div className={ProductStyles['Products__row']}>
-          <ProductCard
-          title
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-          className={'Product__card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-           />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
-          <ProductCard
-          ImgSrc={ProductCardImg1}
-          ImgTitle={'product-card'}
-            />
+           
+           
+            {productItem}
 
           </div>
         </div>

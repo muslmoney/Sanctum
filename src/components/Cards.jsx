@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
-
+import Image from './Image'
+import Typography, { Paragraph } from './Typography';
 import ProductStyle from "./components.module.css";
 
 
@@ -16,16 +17,21 @@ const Cards = ({ className, title, ImgSrc, ImgTitle }) => {
 }
 
 
-export const ProductCard = ({ className, title, ImgSrc, ImgTitle, Text }) =>{
-  className = classNames(ProductStyle[{className}])
-return (
-  <div>
-    <img src={ImgSrc} alt={ImgTitle} />
-    <h3>{title}</h3>
-    <p>{Text}</p>
-    <button>Посмотреть</button>
-  </div>
-)
+export const ProductCard = ({ price, className, title, image, ...props }) => {
+
+  return (
+    <div {...props} className={classNames(className, ProductStyle['Product__card'])} >
+      {/* <img src={ImgSrc} alt={ImgTitle} /> */}
+      <Image src={image} title={title} />
+      {/* <h3>{title}</h3> */}
+      <Paragraph color={"secondary3"}>
+        {title}
+      </Paragraph>
+      {/* <p>{Text}</p> */}
+      <Paragraph color={"secondary3"}>{price}</Paragraph>
+      <button>Посмотреть</button>
+    </div>
+  )
 }
 
 export default Cards

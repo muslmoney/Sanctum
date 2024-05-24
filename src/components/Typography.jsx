@@ -56,8 +56,8 @@ const Typography = ({lvl = 1, weight, className, children, ...props}) => {
   }
 };
 
-export const Paragraph = ({ className, children, ...props }) => {
-  className = classNames(className, TypographyStyle["Text"]);
+export const Paragraph = ({ className, color, children, ...props }) => {
+  className = classNames(className, TypographyStyle["Text"], TypographyStyle['color-' + color ?? 'default']);
 
   return (
     <p className={className} {...props}>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Typography, { Paragraph } from './../components/Typography'
 import { FaFilter } from 'react-icons/fa6'
 import ProductStyles from './pages.module.scss'
@@ -9,15 +9,29 @@ import ProductCardImg3 from '../assets/product-card3.jpg'
 import ProductCardImg4 from '../assets/product-card4.jpg'
 import { ProductsData } from '../db/products'
 import { Range } from "react-range"
+import axios from 'axios'
+import { error } from 'style'
 
 
 const Products = () => {
   const [RangeValues, setRangeValues] = useState([900])
+  const [Data, setData] = useState([]);
+  
+  useEffect(() => {
+    try{
+      axios.get(import.meta.env.VITE_API + "/products").then(response => {
+        const data = response.data;
+        setData(() => data && data?.length ?  data : [])
+      })
+    }catch(event){
+      console.warn(event?.message);
+      console.error(event);
+    }
+  },[])
 
 
-
-  const productItem = ProductsData.map(item => {
-    return <Fragment key={item.key}>
+  const productItem = Data.map(item => {
+    return <Fragment key={item.id}>
       <ProductCard  image={item.image}
         price = {item.price}
         title={item.title} />
@@ -55,7 +69,8 @@ const Products = () => {
           <div className={ProductStyles["Product__filter"]}>
             <div className={ProductStyles["Product__filter-menu"]}>
               <div><Typography lvl={4}>Категории</Typography>
-                <div className={ProductStyles['Product__filter-item']}><label >
+                <div className={ProductStyles['Product__filter-item']}>
+                  <label >
                   <input type="checkbox" />
                   <Paragraph>Ванны</Paragraph>
                 </label>

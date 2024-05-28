@@ -151,19 +151,32 @@
 
 
 
-.Product-cards {
+.Products-cards {
     .Products__row {
         display: flex;
         flex-wrap: wrap;
-
-        .Product__card {
-            object-fit: cover;
-            width: 10000px;
-
-        }
-
-        img {
-            width: 400px;
-        }
+        justify-content: space-between;
+        align-items: center;
+        
+        .Products__card{
+            padding: 30px;
+            border: 2px solid #51ABFFB8;
+            p{
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 24.38px;
+          text-align: left;
+          
+            }
+            button{
+                color: #51ABFFB8;
+                background-color: transparent;
+            border: 2px solid #51ABFFB8;
+          padding: 15px 90px;
+          
+            }
+          
+          }
+      
     }
 }

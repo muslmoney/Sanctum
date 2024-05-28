@@ -17,12 +17,12 @@ const Products = () => {
 
 
   const productItem = ProductsData.map(item => {
-    return <Fragment>
-      <ProductCard >
-        image={item.image}
+    return <Fragment key={item.key}>
+      <ProductCard  image={item.image}
         price = {item.price}
-        title={item.title}
-      </ProductCard>
+        title={item.title} />
+       
+     
     </Fragment>
   })
 
@@ -131,9 +131,10 @@ const Products = () => {
                   </label>
                 </div>
               </div>
-              <div style={{ width: 340 , flexShrink: 0 }}>
+              <div style={{ width: 340, flexShrink: 0 }}>
 
-                <Range step={1}
+                <Range
+                 step={1}
                   min={50}
                   max={1800}
                   values={RangeValues}
@@ -174,12 +175,11 @@ const Products = () => {
 
 
 
-      <section className={ProductStyles['Product-cards']}>
+      <section className={ProductStyles['Products-cards']}>
         <div className="container">
           <Typography lvl={1}>Ванны</Typography>
-          <div className={ProductStyles['Products__row']}>
-           
-           
+          <div  className={ProductStyles['Products__row']}>
+
             {productItem}
 
           </div>

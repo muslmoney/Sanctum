@@ -16,21 +16,45 @@ import { error } from 'style'
 const Products = () => {
   const [RangeValues, setRangeValues] = useState([900])
   const [Data, setData] = useState([]);
-  
+  const [DataFull, setDataFull] = useState([])
+
   useEffect(() => {
     try{
       axios.get(import.meta.env.VITE_API + "/products").then(response => {
         const data = response.data;
         setData(() => data && data?.length ?  data : [])
+        setDataFull(data);
       })
+      
     }catch(event){
       console.warn(event?.message);
       console.error(event);
     }
+    
   },[])
 
+  const filterCategories = (type = "", e) => {
+    
+    const key = e.target.dataset.type;
 
-  const productItem = Data.map(item => {
+    if(type === ""){
+    setDataFull(Data)
+  }else{
+     const filtered = Data?.filter(item => item[key]?.includes(type))
+   
+    setDataFull(filtered);
+   }
+  } 
+
+  const CheckedFunc = (e , type) => {
+    if (e?.target?.checked) {
+      filterCategories(type, e)
+    }else{
+      filterCategories("", e)
+    }
+  }
+
+  const productItem = DataFull.map(item => {
     return <Fragment key={item.id}>
       <ProductCard  image={item.image}
         price = {item.price}
@@ -71,78 +95,102 @@ const Products = () => {
               <div><Typography lvl={4}>Категории</Typography>
                 <div className={ProductStyles['Product__filter-item']}>
                   <label >
-                  <input type="checkbox" />
+                  <input type="checkbox" data-type='category' onChange={e => CheckedFunc( e, "Ванны")} />
                   <Paragraph>Ванны</Paragraph>
                 </label>
                   <label >
-                    <input type="checkbox" />
+                    <input type="checkbox"  data-type='category'  onChange={e => CheckedFunc( e, "Туалеты")} />
                     <Paragraph>Смесители</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
+                    <input type="checkbox"  data-type='category' onChange={e => CheckedFunc( e, "Сместители")} />
                     <Paragraph>Унитазы</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
+                    <input type="checkbox"  data-type='category' onChange={e => CheckedFunc( e, "Раковины")} />
                     <Paragraph>Раковины</Paragraph>
                   </label>
                 </div></div>
-              <div><Typography lvl={4}>Категории</Typography>
+              <div><Typography lvl={4}>Стиль</Typography>
                 <div className={ProductStyles['Product__filter-item']}><label >
-                  <input type="checkbox" />
-                  <Paragraph>Ванны</Paragraph>
+                  <input type="checkbox"  data-type='style'  onChange={e => CheckedFunc( e , "Модерн")} />
+                  <Paragraph>Модерн</Paragraph>
                 </label>
                   <label >
-                    <input type="checkbox" />
-                    <Paragraph>Смесители</Paragraph>
+                    <input type="checkbox"  data-type='style'  onChange={e => CheckedFunc( e , "Лфот")} />
+                    <Paragraph>Лфот</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
+                    <input type="checkbox"  data-type='style'  onChange={e => CheckedFunc( e , "Классический")} />
                     <Paragraph>Классический</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
-                    <Paragraph>Раковины</Paragraph>
+                    <input type="checkbox" data-type='style'  onChange={e => CheckedFunc( e , "Ретро")} />
+                    <Paragraph>Ретро</Paragraph>
+                  </label> 
+                  <label >
+                    <input type="checkbox" data-type='style'   onChange={e => CheckedFunc( e , "Арт-Деко")} />
+                    <Paragraph>Арт-Деко</Paragraph>
+                  </label> 
+                  <label >
+                    <input type="checkbox" data-type='style'   onChange={e => CheckedFunc( e , "Hi-Tech")} />
+                    <Paragraph>Hi-Tech</Paragraph>
                   </label>
                 </div></div>
 
               <div>
                 <Typography lvl={4}>Материал</Typography>
                 <div className={ProductStyles['Product__filter-item']}><label >
-                  <input type="checkbox" />
-                  <Paragraph>Ванны</Paragraph>
+                  <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
+                  <Paragraph>Акрил</Paragraph>
                 </label>
                   <label >
-                    <input type="checkbox" />
-                    <Paragraph>Смесители</Paragraph>
-                  </label>
-                  <label >
-                    <input type="checkbox" />
-                    <Paragraph>Унитазы</Paragraph>
-                  </label>
-                  <label >
-                    <input type="checkbox" />
+                    <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
                     <Paragraph>Керамика</Paragraph>
+                  </label>
+                  <label >
+                    <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Камень</Paragraph>
+                  </label> 
+                  <label >
+                    <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Чугун</Paragraph>
+                  </label>
+                  <label >
+                    <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Сталь</Paragraph>
+                  </label>
+                  <label >
+                    <input type="checkbox" data-type='materials' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Стекло</Paragraph>
                   </label>
                 </div>
               </div>
               <div>
                 <Typography lvl={4}>Форма</Typography>
                 <div className={ProductStyles['Product__filter-item']}><label >
-                  <input type="checkbox" />
-                  <Paragraph>Ванны</Paragraph>
+                  <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
+                  <Paragraph>Овальная</Paragraph>
                 </label>
                   <label >
-                    <input type="checkbox" />
-                    <Paragraph>Смесители</Paragraph>
+                    <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Угловая</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
-                    <Paragraph>Унитазы</Paragraph>
+                    <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Круглая</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox" />
+                    <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
                     <Paragraph>Прямоугольник</Paragraph>
+                  </label>
+                  <label >
+                    <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Нестандартная</Paragraph>
+                  </label>
+                  <label >
+                    <input type="checkbox" data-type='form' onChange={e => CheckedFunc( e , "Ванны")} />
+                    <Paragraph>Квадратная</Paragraph>
                   </label>
                 </div>
               </div>
@@ -195,7 +243,8 @@ const Products = () => {
           <Typography lvl={1}>Ванны</Typography>
           <div  className={ProductStyles['Products__row']}>
 
-            {productItem}
+            {productItem CheckedFunc ? "" : "По запросу ничего не найдено"   }
+
 
           </div>
         </div>

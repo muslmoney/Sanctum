@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Products from './pages/Products.jsx'
 import NotFound from './pages/NotFound'
+import {DataProvider} from './context/data.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <RouterProvider router={router}/>
+      <DataProvider>
+        <RouterProvider router={router} />
+      </DataProvider>
   </React.StrictMode>,
 )

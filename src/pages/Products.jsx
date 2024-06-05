@@ -12,6 +12,7 @@ import { Range } from "react-range"
 import axios from 'axios'
 import { error } from 'style'
 import { DataContext } from '../context/data'
+import NotFoundFilter from '../components/NotFoundFilter'
 
 
 const Products = () => {
@@ -36,7 +37,6 @@ const Products = () => {
   // }, [])
 
   console.log(Data);
-
   const filterCategories = (type = "", e) => {
 
     const key = e.target.dataset.type;
@@ -200,23 +200,35 @@ const Products = () => {
                   </label>
                 </div>
               </div>
-              <div style={{ width: 340, flexShrink: 0 }}>
-
-                <Range
+              <div  style={{ width: 340, flexShrink: 0 }}>
+                <Typography lvl={4}>
+                  Размер
+                  <br />
+                  <br />
+                </Typography>
+              <Typography lvl={4} >
+                  Длина
+                </Typography>
+              <Range
                   step={1}
                   min={50}
                   max={1800}
                   values={RangeValues}
                   onChange={(values) => setRangeValues(values)}
-                  renderThumb={({ ...props }) => (
+                  renderThumb={({ props }) => (
                     <div
                       {...props}
                       style={{
                         ...props.style,
-                        height: '42px',
-                        width: '42px',
-                        backgroundColor: '#999'
-                      }} />
+                        height: '22px',
+                        width: '22px',
+                        backgroundColor: '#51ABFF',
+                        border: 'none',
+                        borderRadius: '50%'
+
+                      }}
+                      
+                       />
 
                   )}
                   renderTrack={({ props, children }) => (
@@ -224,15 +236,61 @@ const Products = () => {
                       {...props}
                       style={{
                         ...props.style,
-                        height: '6px',
+                        height: '1px',
                         width: '100%',
-                        backgroundColor: '#ccc'
+                        backgroundColor: '#51ABFF'
                       }}
+                      
                     >
                       {children}
                     </div>
                   )}
                 />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <Typography lvl={4} >
+                  Ширина
+                </Typography>
+                 <Range
+                step={1}
+                min={50}
+                max={1800}
+                values={RangeValues}
+                onChange={(values) => setRangeValues(values)}
+                renderThumb={({ props }) => (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: '22px',
+                      width: '22px',
+                      backgroundColor: '#51ABFF',
+                      border: 'none',
+                      borderRadius: '50%'
+
+                    }}
+                    
+                     />
+
+                )}
+                renderTrack={({ props, children }) => (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: '1px',
+                      width: '100%',
+                      backgroundColor: '#51ABFF'
+                    }}
+                    
+                  >
+                    {children}
+                  </div>
+                )}
+              />
               </div>
             </div>
           </div>
@@ -249,7 +307,7 @@ const Products = () => {
           <Typography lvl={1}>Ванны</Typography>
           <div className={ProductStyles['Products__row']}>
 
-            {productItem?.length > 0 ?  productItem : "По запросу ничего не найдено"}
+              {productItem?.length > 0 ?  productItem : 'По вашему запросу ничего не найдено' }
 
           </div>
         </div>

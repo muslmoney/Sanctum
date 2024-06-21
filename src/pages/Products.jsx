@@ -16,7 +16,7 @@ import NotFoundFilter from '../components/NotFoundFilter'
 
 
 const Products = () => {
-  const {Data} = useContext(DataContext)
+  const { Data } = useContext(DataContext)
   const [RangeValues, setRangeValues] = useState([900])
   // const [Data, setData] = useState([]);
   const [DataFull, setDataFull] = useState([])
@@ -35,8 +35,10 @@ const Products = () => {
   //   }
 
   // }, [])
-
-  console.log(Data);
+  useEffect(() => {
+    setDataFull(Data)
+  }, [Data?.length])
+  
   const filterCategories = (type = "", e) => {
 
     const key = e.target.dataset.type;
@@ -101,19 +103,19 @@ const Products = () => {
               <div><Typography lvl={4}>Категории</Typography>
                 <div className={ProductStyles['Product__filter-item']}>
                   <label >
-                    <input type="checkbox"  onChange={e => CheckedFunc(e, "Ванны")} />
+                    <input type="checkbox" onChange={e => CheckedFunc(e, "Ванны")} />
                     <Paragraph>Ванны</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox"  onChange={e => CheckedFunc(e, "Туалеты")} />
+                    <input type="checkbox" onChange={e => CheckedFunc(e, "Туалеты")} />
                     <Paragraph>Смесители</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox"  onChange={e => CheckedFunc(e, "Сместители")} />
+                    <input type="checkbox" onChange={e => CheckedFunc(e, "Сместители")} />
                     <Paragraph>Унитазы</Paragraph>
                   </label>
                   <label >
-                    <input type="checkbox"  onChange={e => CheckedFunc(e, "Раковины")} />
+                    <input type="checkbox" onChange={e => CheckedFunc(e, "Раковины")} />
                     <Paragraph>Раковины</Paragraph>
                   </label>
                 </div></div>
@@ -200,16 +202,16 @@ const Products = () => {
                   </label>
                 </div>
               </div>
-              <div  style={{ width: 340, flexShrink: 0 }}>
+              <div style={{ width: 340, flexShrink: 0 }}>
                 <Typography lvl={4}>
                   Размер
                   <br />
                   <br />
                 </Typography>
-              <Typography lvl={4} >
+                <Typography lvl={4} >
                   Длина
                 </Typography>
-              <Range
+                <Range
                   step={1}
                   min={50}
                   max={1800}
@@ -227,8 +229,8 @@ const Products = () => {
                         borderRadius: '50%'
 
                       }}
-                      
-                       />
+
+                    />
 
                   )}
                   renderTrack={({ props, children }) => (
@@ -240,7 +242,7 @@ const Products = () => {
                         width: '100%',
                         backgroundColor: '#51ABFF'
                       }}
-                      
+
                     >
                       {children}
                     </div>
@@ -254,43 +256,43 @@ const Products = () => {
                 <Typography lvl={4} >
                   Ширина
                 </Typography>
-                 <Range
-                step={1}
-                min={50}
-                max={1800}
-                values={RangeValues}
-                onChange={(values) => setRangeValues(values)}
-                renderThumb={({ props }) => (
-                  <div
-                    {...props}
-                    style={{
-                      ...props.style,
-                      height: '22px',
-                      width: '22px',
-                      backgroundColor: '#51ABFF',
-                      border: 'none',
-                      borderRadius: '50%'
+                <Range
+                  step={1}
+                  min={50}
+                  max={1800}
+                  values={RangeValues}
+                  onChange={(values) => setRangeValues(values)}
+                  renderThumb={({ props }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '22px',
+                        width: '22px',
+                        backgroundColor: '#51ABFF',
+                        border: 'none',
+                        borderRadius: '50%'
 
-                    }}
-                    
-                     />
+                      }}
 
-                )}
-                renderTrack={({ props, children }) => (
-                  <div
-                    {...props}
-                    style={{
-                      ...props.style,
-                      height: '1px',
-                      width: '100%',
-                      backgroundColor: '#51ABFF'
-                    }}
-                    
-                  >
-                    {children}
-                  </div>
-                )}
-              />
+                    />
+
+                  )}
+                  renderTrack={({ props, children }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '1px',
+                        width: '100%',
+                        backgroundColor: '#51ABFF'
+                      }}
+
+                    >
+                      {children}
+                    </div>
+                  )}
+                />
               </div>
             </div>
           </div>
@@ -307,7 +309,7 @@ const Products = () => {
           <Typography lvl={1}>Ванны</Typography>
           <div className={ProductStyles['Products__row']}>
 
-              {productItem?.length > 0 ?  productItem : 'По вашему запросу ничего не найдено' }
+            {productItem?.length > 0 ? productItem : 'По вашему запросу ничего не найдено'}
 
           </div>
         </div>
@@ -317,7 +319,7 @@ const Products = () => {
 
     </div>
   )
-  
+
 }
 
 export default Products
